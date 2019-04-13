@@ -1,11 +1,15 @@
+#pragma once
 #include <SFML/Graphics.hpp>
+#include "testmain.h"
+
 int main()
 {
-
+	/*
 	//starting sample code
 	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
+
 
 	while (window.isOpen())
 	{
@@ -20,6 +24,9 @@ int main()
 		window.draw(shape);
 		window.display();
 	}
-
+	*/
+	test();
+	
 	return 0;
+	
 }
