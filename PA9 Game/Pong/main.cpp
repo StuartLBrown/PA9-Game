@@ -4,13 +4,14 @@
 
 int main()
 {
-	/*
+	///*
 	//starting sample code
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
-
-
+	sf::Texture texture;
+	texture.loadFromFile("mario.png");
+	sf::Sprite sprite(texture);
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -24,8 +25,8 @@ int main()
 		window.draw(shape);
 		window.display();
 	}
-	*/
-	test();
+	//*/
+	//test();
 	
 	return 0;
 	

@@ -1,5 +1,4 @@
 #include "testmain.h"
-#include "Mario.h"
 
 void test(void)
 {
@@ -8,11 +7,11 @@ void test(void)
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 	sf::Texture texture;
-	sf::Image image;
-	image.loadFromFile("Assets/mario.png");
+	texture.loadFromFile("mario.png");
+	sf::Sprite sprite(texture);
 	//texture.loadFromFile("Assets/mario.png");
 	sf::IntRect hitBox(100, 100, 100, 100);
-	Mario mario(texture, hitBox, 50.f, 50.f);
+	//Mario mario(texture, hitBox, 50.f, 50.f);
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -24,7 +23,8 @@ void test(void)
 
 		window.clear();
 		window.draw(shape);
-		window.draw(mario);
+		//window.draw(mario);
+		window.draw(sprite);
 		window.display();
 	}
 
