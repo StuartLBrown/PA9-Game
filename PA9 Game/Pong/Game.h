@@ -1,14 +1,21 @@
-#include "Character.h"
+#include "SFML\Graphics.hpp"
 #pragma once
 #include <time.h>
 #include <list>
 #include <iostream>
+#include "Mario.h"
+#include <chrono>
+
+using sf::Vector2f;
 using std::cout;
 class Game {
 private:
 	//temporary until we decide on what a player object will be named and more flushed out
 	//Character player;
 	//probably will need a map of some kind as well, not sure what we are going to with that yet
+
+	//const floor height, defines the height in pixels that the floor will be from the bottom of the screen
+	const int FLOOR_HEIGHT = 200;
 
 public:
 	Game();
@@ -19,22 +26,20 @@ Game::Game() {
 	//starting sample code
 
 	//starting the application in fullscreen
-	sf::RenderWindow window(sf::VideoMode(800,600), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(1000,1000), "SFML works!");
 
-	//needs to be replaced with a character object
-	sf::RectangleShape temp(Vector2f(20, 20));
-	temp.setFillColor(sf::Color::Red);
-	temp.setOrigin(10, 10);
-	temp.setPosition(Vector2f(window.getSize().x / 2, window.getSize().y / 2));
+	std::chrono::time_point<std::chrono::system_clock> time, time2;
+	time = std::chrono::system_clock::now();
+	sf::Texture texture;
+	int animationNum = 0;
+	texture.loadFromFile("mario.png");
+	Mario *mario = new Mario(texture);
 
-	//temporary for testing of camera mvmt
-	std::list<sf::RectangleShape> objects;
-	populate(objects, rand()%window.getSize().x, rand() % window.getSize().y);
-	populate(objects, rand() % window.getSize().x, rand() % window.getSize().y);
-	populate(objects, rand() % window.getSize().x, rand() % window.getSize().y);
-	populate(objects, rand() % window.getSize().x, rand() % window.getSize().y);
-	populate(objects, rand() % window.getSize().x, rand() % window.getSize().y);
-	populate(objects, rand() % window.getSize().x, rand() % window.getSize().y);
+	sf::Texture *t = new sf::Texture();
+	t->loadFromFile("background.png");
+	sf::RectangleShape background(Vector2f(3000, 1000));
+	background.setTexture(t);
+	background.setPosition(Vector2f(0, 0));
 
 	//the "camera" - use setCenter(vector) to set the position of the camera
 	sf::View camera(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
@@ -42,41 +47,75 @@ Game::Game() {
 	while (window.isOpen())
 	{
 		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
+		while (window.pollEvent(event)) {
+			switch (event.type) {
+			case sf::Event::Closed:
 				window.close();
+				break;
+			case sf::Event::KeyPressed:
+				if (event.key.code == sf::Keyboard::D&&camera.getCenter().x - mario->getPosition().x <= camera.getSize().x / 2 - 50) {
+					animationNum = 4;
+					mario->setVelocityX(8);
+				}
+				if (event.key.code == sf::Keyboard::A) {
+					animationNum = 5;
+					mario->setVelocityX(-8);
+				}
+				if (event.key.code == sf::Keyboard::Space&&mario->getPosition().y >= 0) {
+					if (animationNum == 4 || animationNum == 10) {
+						animationNum = 10;
+					}
+					if (animationNum == 5 || animationNum == 11) {
+						animationNum = 11;
+					}
+					mario->setVelocityY(-8);
+				}
+				break;
+			case sf::Event::KeyReleased:
+				if (animationNum == 4) {
+					mario->setVelocityX(0);
+					animationNum = 0;
+				}
+				if (animationNum == 5) {
+					mario->setVelocityX(0);
+					animationNum = 1;
+				}
+				break;
+			}
 		}
 
-		//handling player movement and restricting bounds to size of window and for left the left edge of the current screen
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && temp.getPosition().y >= 0) {
-			temp.move(0, -.25);
-			camera.setCenter(camera.getCenter().x,temp.getPosition().y);
+		if (mario->getVelocityX() > 0) {
+			if (mario->getPosition().x >= camera.getCenter().x)
+				camera.setCenter(mario->getPosition());
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && temp.getPosition().y <= window.getSize().y) {
-			temp.move(0, .25);
-			camera.setCenter(camera.getCenter().x,temp.getPosition().y);
+		if (mario->getVelocityY() > 0) {
+			camera.setCenter(camera.getCenter().x, mario->getPosition().y);
+			if (mario->getPosition().y >= window.getSize().y) {
+				mario->setVelocityY(-8);
+			}
 		}
-		//not setting the camera if left is pushed to emulate orginal super mario bros. camera (can't go left past the edge of the screen)
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)&&camera.getCenter().x-temp.getPosition().x<=camera.getSize().x/2-50)
-			temp.move(-.25, 0);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-			temp.move(.25, 0);
-			//only setting the camera once the middle of the screen has been reached
-			if(temp.getPosition().x>=camera.getCenter().x)
-				camera.setCenter(temp.getPosition());
+		if (mario->getVelocityY() < 0) {
+			camera.setCenter(camera.getCenter().x, mario->getPosition().y);
+			if (mario->getPosition().y <= FLOOR_HEIGHT) {
+				mario->setVelocityY(0);
+				mario->move(Vector2f(0, FLOOR_HEIGHT - mario->getPosition().y));
+			}
 		}
+		mario->move(mario->getVelocityX(), mario->getVelocityY());
+		time2 = std::chrono::system_clock::now();
+		std::chrono::duration<double> elapsed_seconds = time2 - time;
+		int timer = (int)(elapsed_seconds.count() * 100);
+		std::cout << elapsed_seconds.count() << std::endl;
+		if (timer % 15 == 0)
+			mario->Animate(animationNum);
 
 		window.clear();
 
 		window.setView(camera);
 
-		//going through the list
-		for (std::list<sf::RectangleShape>::const_iterator it = objects.begin(); it != objects.end(); ++it){
-			window.draw(*it);
-		}
+		window.draw(*mario);
+		window.draw(background);
 
-		window.draw(temp);
 		window.display();
 	}
 
