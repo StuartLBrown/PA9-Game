@@ -1,10 +1,2 @@
-﻿  main.cpp
-  Generating Code...
-  Compiling...
-  testmain.cpp
-  Mario.cpp
-c:\users\michael\source\repos\pa9-game\pa9 game\pong\mario.cpp(6): warning C4101: 'y': unreferenced local variable
-c:\users\michael\source\repos\pa9-game\pa9 game\pong\mario.cpp(6): warning C4101: 'x': unreferenced local variable
-  Generating Code...
-  Pong.vcxproj -> C:\Users\Michael\Source\Repos\PA9-Game\PA9 Game\Debug\Pong.exe
+﻿  Pong.vcxproj -> C:\Users\Michael\Source\Repos\PA9-Game\PA9 Game\Debug\Pong.exe
   Pong.vcxproj -> C:\Users\Michael\Source\Repos\PA9-Game\PA9 Game\Debug\Pong.pdb (Full PDB)
