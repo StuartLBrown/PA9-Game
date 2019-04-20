@@ -1,2 +1,18 @@
 
 *.opendb
+PA9 Game/.vs/PA9 Game/v14/.suo
+PA9 Game/Debug/PA9 Game.exe
+PA9 Game/Debug/PA9 Game.ilk
+PA9 Game/Debug/PA9 Game.pdb
+PA9 Game/PA9 Game.VC.db
+PA9 Game/Pong/Debug/main.obj
+PA9 Game/Pong/Debug/Mario.obj
+PA9 Game/Pong/Debug/PA9 Game.tlog/CL.read.1.tlog
+PA9 Game/Pong/Debug/PA9 Game.tlog/CL.write.1.tlog
+PA9 Game/Pong/Debug/PA9 Game.tlog/link.command.1.tlog
+PA9 Game/Pong/Debug/PA9 Game.tlog/link.read.1.tlog
+PA9 Game/Pong/Debug/PA9 Game.tlog/link.write.1.tlog
+PA9 Game/Pong/Debug/PA9 Game.tlog/PA9 Game.lastbuildstate
+PA9 Game/Pong/Debug/Pong.log
+PA9 Game/Pong/Debug/vc140.idb
+PA9 Game/Pong/Debug/vc140.pdb
