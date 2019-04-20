@@ -1,3 +1,4 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 
 //14 by 16 frames
@@ -10,6 +11,9 @@ public:
 	float getVelocityY(void);
 	void setVelocityX(float newVelocityX);
 	void setVelocityY(float newVelocityY);
+	float getAccelerationY(void);
+	void setAccelerationY(float newAccelerationY);
+	void adjustVelocity(void);
 private:
 	sf::IntRect Frames[14][16];
 	float velocityX;

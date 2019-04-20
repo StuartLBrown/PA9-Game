@@ -15,7 +15,10 @@ Mario::Mario(const sf::Texture &texture) : Sprite(texture)
 	this->setTextureRect({ 0,0,256,293 });
 	this->setPosition(500, 500);
 	//this->Frames[0][0] = sf::IntRect({ 0, 0, 256, 292.6 });
-
+	this->velocityX = 0;
+	this->velocityY = 0;
+	this->accelerationX = 0;
+	this->accelerationY = 0;
 }
 
 Mario::~Mario()
@@ -25,8 +28,10 @@ Mario::~Mario()
 
 void Mario::Animate(int frame)
 {
-	if (frame != 10)
+	static int index1 = 0;
+	if (frame != 10 && frame != 11)
 	{
+		index1 = 0;
 		static int index = 0;
 		this->setTextureRect(this->Frames[frame][index]);
 		if (index != 15)
@@ -36,8 +41,10 @@ void Mario::Animate(int frame)
 	}
 	else
 	{
-		static int index = 0;
-
+		static int index1 = 0;
+		this->setTextureRect(this->Frames[frame][index1]);
+		if (index1 != 15)
+			++index1;
 	}
 }
 
@@ -57,4 +64,18 @@ void Mario::setVelocityX(float newVelocityX)
 void Mario::setVelocityY(float newVelocityY)
 {
 	this->velocityY = newVelocityY;
+}
+
+float Mario::getAccelerationY(void)
+{
+	return this->accelerationY;
+}
+void Mario::setAccelerationY(float newAccelerationY)
+{
+	this->accelerationY = newAccelerationY;
+}
+
+void Mario::adjustVelocity(void)
+{
+	this->velocityY = this->velocityY + this->accelerationY;
 }
