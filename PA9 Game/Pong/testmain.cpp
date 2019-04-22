@@ -9,6 +9,8 @@ void test(void)
 	int animationNum = 0;
 	texture.loadFromFile("mario.png");
 	Mario *mario = new Mario(texture);
+	//sf::Rect<int> ground;
+	//sf::Sprite sfk()
 	while (window.isOpen())
 	{
 		sf::Event event;
