@@ -77,5 +77,9 @@ void Mario::setAccelerationY(float newAccelerationY)
 
 void Mario::adjustVelocity(void)
 {
-	this->velocityY = this->velocityY + this->accelerationY;
+	this->velocityY += this->accelerationY;
 }
+
+void Mario::setAccelerationX(float newAccelerationX) { accelerationX = newAccelerationX; }
+
+float Mario::getAccelerationX() { return accelerationX; }

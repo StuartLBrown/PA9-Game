@@ -14,6 +14,8 @@ public:
 	float getAccelerationY(void);
 	void setAccelerationY(float newAccelerationY);
 	void adjustVelocity(void);
+	void setAccelerationX(float newAccelerationX);
+	float getAccelerationX();
 private:
 	sf::IntRect Frames[14][16];
 	float velocityX;

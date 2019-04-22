@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Mario.h"
 #include <chrono>
+#include <math.h>
 
 
 using sf::Vector2f;
@@ -57,32 +58,35 @@ Game::Game() {
 				break;
 			case sf::Event::KeyPressed:
 				if (event.key.code == sf::Keyboard::D) {
-					animationNum = 4;
-					mario->setVelocityX(1);
+					if(mario->getVelocityY()==0)
+						animationNum = 4;
+					mario->setVelocityX(.5);
+					mario->setAccelerationX(0);
 				}
 				if (event.key.code == sf::Keyboard::A&&camera.getCenter().x - mario->getPosition().x <= camera.getSize().x / 2) {
-					animationNum = 5;
-					mario->setVelocityX(-1);
+					if (mario->getVelocityY() == 0)
+						animationNum = 5;
+					mario->setVelocityX(-.5);
+					mario->setAccelerationX(0);
 				}
-				if (event.key.code == sf::Keyboard::Space&&mario->getPosition().y >= 0) {
-					mario->setVelocityY(-8);
+				if (event.key.code == sf::Keyboard::Space&&mario->getPosition().y >= 0&&mario->getPosition().y==500) {
+					mario->setVelocityY(-2);
 					animationNum = 10;
 					if (mario->getPosition().y == 500)
 					{
-						mario->setVelocityY(-3);
+						mario->setVelocityY(-4);
 						mario->setAccelerationY(1);
 					}
 				}
 				break;
 			case sf::Event::KeyReleased:
 				if (animationNum == 4) {
-					mario->setVelocityX(0);
 					animationNum = 0;
 				}
 				if (animationNum == 5) {
-					mario->setVelocityX(0);
 					animationNum = 1;
 				}
+				mario->setAccelerationX(mario->getVelocityX()/7.5*-1);
 				break;
 			}
 		}
@@ -104,11 +108,17 @@ Game::Game() {
 				mario->move(Vector2f(0, FLOOR_HEIGHT - mario->getPosition().y));
 			}
 		}
+		if(std::round(mario->getVelocityX()*10)!=0)
+			mario->setVelocityX(mario->getVelocityX() + mario->getAccelerationX());
+		if (mario->getVelocityX() <= .1&&mario->getVelocityX() >= -.1) {
+			mario->setVelocityX(0);
+			mario->setAccelerationX(0);
+		}
 		mario->move(mario->getVelocityX(), mario->getVelocityY());
 		time2 = std::chrono::system_clock::now();
 		std::chrono::duration<double> elapsed_seconds = time2 - time;
 		int timer = (int)(elapsed_seconds.count() * 100);
-		printVector(mario->getPosition());
+		cout << "Acceleration: "<<mario->getAccelerationX()<<" | Velocity: "<<mario->getVelocityX()<<std::endl;
 		if (timer % 15 == 0)
 			mario->Animate(animationNum);
 		if (timer % 45 == 0){
