@@ -46,5 +46,11 @@
     <Image Include="mario.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="tile_dirt_1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="tile_grass_1.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

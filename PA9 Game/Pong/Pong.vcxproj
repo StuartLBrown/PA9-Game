@@ -161,6 +161,8 @@
   <ItemGroup>
     <Image Include="Assets\mario.png" />
     <Image Include="mario.png" />
+    <Image Include="tile_dirt_1.jpg" />
+    <Image Include="tile_grass_1.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
