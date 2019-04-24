@@ -30,7 +30,7 @@ Game::Game() {
 	//starting sample code
 
 	//starting the application in fullscreen
-	sf::RenderWindow window(sf::VideoMode(1000,1000), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(1000,1000), "Mario");
 
 	std::chrono::time_point<std::chrono::system_clock> time, time2;
 	time = std::chrono::system_clock::now();
@@ -44,6 +44,13 @@ Game::Game() {
 	sf::RectangleShape background(Vector2f(3000, 1000));
 	background.setTexture(t);
 	background.setPosition(Vector2f(0, 0));
+
+	// Ground/floor shape initialization and customization
+	sf::RectangleShape floor(Vector2f(3000, FLOOR_HEIGHT));
+	floor.setFillColor(sf::Color(30, 255, 30, 255));
+	floor.setOutlineColor(sf::Color::Black);
+	floor.setOutlineThickness(-3);
+	floor.setPosition(Vector2f(0, 955 - FLOOR_HEIGHT)); // this Y position is just what worked, idk why it 
 
 	//the "camera" - use setCenter(vector) to set the position of the camera
 	sf::View camera(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
@@ -137,6 +144,7 @@ Game::Game() {
 
 		window.draw(background);
 		window.draw(*mario);
+		window.draw(floor);
 
 		window.display();
 	}
