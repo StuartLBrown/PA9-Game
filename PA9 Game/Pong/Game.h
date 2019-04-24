@@ -78,16 +78,16 @@ Game::Game() {
 							animationNum = 5;
 						mario->setVelocityX(-.5);
 						mario->setAccelerationX(0);
-						cout << "Moving left" << std::endl;
+						//cout << "Moving left" << std::endl;
 					}
 				}
 				if (event.key.code == sf::Keyboard::Space&&mario->getPosition().y >= 0&&mario->getPosition().y==500) {
-					mario->setVelocityY(-2);
+					mario->setVelocityY(-.5);
 					animationNum = 10;
 					if (mario->getPosition().y == 500)
 					{
-						mario->setVelocityY(-4);
-						mario->setAccelerationY(1);
+						mario->setVelocityY(-2);
+						mario->setAccelerationY(.5);
 					}
 				}
 				break;
