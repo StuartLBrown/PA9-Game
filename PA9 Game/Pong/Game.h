@@ -70,11 +70,16 @@ Game::Game() {
 					mario->setVelocityX(.5);
 					mario->setAccelerationX(0);
 				}
-				if (event.key.code == sf::Keyboard::A&&camera.getCenter().x - mario->getPosition().x <= camera.getSize().x / 2) {
-					if (mario->getVelocityY() == 0)
-						animationNum = 5;
-					mario->setVelocityX(-.5);
-					mario->setAccelerationX(0);
+				if (event.key.code == sf::Keyboard::Escape)
+					window.close();
+				if (event.key.code == sf::Keyboard::A) {
+					if (camera.getCenter().x - mario->getPosition().x <= camera.getSize().x / 2+50) {
+						if (mario->getVelocityY() == 0)
+							animationNum = 5;
+						mario->setVelocityX(-.5);
+						mario->setAccelerationX(0);
+						cout << "Moving left" << std::endl;
+					}
 				}
 				if (event.key.code == sf::Keyboard::Space&&mario->getPosition().y >= 0&&mario->getPosition().y==500) {
 					mario->setVelocityY(-2);
@@ -121,11 +126,15 @@ Game::Game() {
 			mario->setVelocityX(0);
 			mario->setAccelerationX(0);
 		}
-		mario->move(mario->getVelocityX(), mario->getVelocityY());
+		if(mario->getVelocityX()>=0)
+			mario->move(mario->getVelocityX(), mario->getVelocityY());
+		else {
+			if(mario->getVelocityX()<0&&camera.getCenter().x - mario->getPosition().x <= camera.getSize().x / 2 + 50)
+				mario->move(mario->getVelocityX(), mario->getVelocityY());
+		}
 		time2 = std::chrono::system_clock::now();
 		std::chrono::duration<double> elapsed_seconds = time2 - time;
 		int timer = (int)(elapsed_seconds.count() * 100);
-		cout << "Acceleration: "<<mario->getAccelerationX()<<" | Velocity: "<<mario->getVelocityX()<<std::endl;
 		if (timer % 15 == 0)
 			mario->Animate(animationNum);
 		if (timer % 45 == 0){

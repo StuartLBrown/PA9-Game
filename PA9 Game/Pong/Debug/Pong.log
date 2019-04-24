@@ -1,8 +1,8 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Pong.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main.cpp
-c:\users\conno\documents\github\pa9-game\pa9 game\pong\game.h(49): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\users\conno\documents\github\pa9-game\pa9 game\pong\game.h(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\conno\documents\github\pa9-game\pa9 game\pong\game.h(56): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\conno\documents\github\pa9-game\pa9 game\pong\game.h(96): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Pong.vcxproj -> C:\Users\conno\Documents\GitHub\PA9-Game\PA9 Game\Debug\PA9 Game.exe
-  Pong.vcxproj -> C:\Users\conno\Documents\GitHub\PA9-Game\PA9 Game\Debug\PA9 Game.pdb (Full PDB)
+c:\github projects\pa9-game\pa9 game\pong\game.h(49): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(56): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(101): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Pong.vcxproj -> C:\Github Projects\PA9-Game\PA9 Game\Debug\PA9 Game.exe
+  Pong.vcxproj -> C:\Github Projects\PA9-Game\PA9 Game\Debug\PA9 Game.pdb (Full PDB)
