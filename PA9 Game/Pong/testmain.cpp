@@ -6,11 +6,12 @@ void test(void)
 	time = std::chrono::system_clock::now();
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
 	sf::Texture texture;
-	int animationNum = 0;
+	sf::Texture grasspng;
+	grasspng.loadFromFile("tile_grass_1.jpg");
 	texture.loadFromFile("mario.png");
+	Grass grass(grasspng);
+	int animationNum = 0;
 	Mario *mario = new Mario(texture);
-	//sf::Rect<int> ground;
-	//sf::Sprite sfk()
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -92,6 +93,7 @@ void test(void)
 			mario->setVelocityY(0);
 			animationNum = 1;
 		}
+		window.draw(grass);
 		window.draw(*mario);
 		window.display();
 	}
