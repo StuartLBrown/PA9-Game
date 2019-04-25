@@ -1,3 +1,14 @@
-﻿  main.cpp
-  Pong.vcxproj -> C:\Github Projects\CPTS-122-Projects\In Class Code\Pong\Debug\Pong.exe
-  Pong.vcxproj -> C:\Github Projects\CPTS-122-Projects\In Class Code\Pong\Debug\Pong.pdb (Full PDB)
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Pong.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+c:\github projects\pa9-game\pa9 game\pong\game.h(75): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(78): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(81): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(84): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(87): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(90): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(102): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(109): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(197): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Pong.vcxproj -> C:\Github Projects\PA9-Game\PA9 Game\Debug\PA9 Game.exe
+  Pong.vcxproj -> C:\Github Projects\PA9-Game\PA9 Game\Debug\PA9 Game.pdb (Full PDB)
