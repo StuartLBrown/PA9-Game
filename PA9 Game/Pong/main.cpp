@@ -1,25 +1,9 @@
-#include <SFML/Graphics.hpp>
+#include "Game.h"
+//fixing linker error, change in linker-input-additional dependencies change all the sfml-graphics.lib
+//to sfml-graphics-d.lib for all the dependencies
+
 int main()
 {
-
-	//starting sample code
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-		window.draw(shape);
-		window.display();
-	}
-
-	return 0;
+	srand((unsigned int)time(NULL));
+	Game game = *(new Game());
 }
