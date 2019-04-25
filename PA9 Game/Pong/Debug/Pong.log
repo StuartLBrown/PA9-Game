@@ -6,9 +6,9 @@ c:\github projects\pa9-game\pa9 game\pong\game.h(81): warning C4244: 'argument':
 c:\github projects\pa9-game\pa9 game\pong\game.h(84): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\github projects\pa9-game\pa9 game\pong\game.h(87): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
 c:\github projects\pa9-game\pa9 game\pong\game.h(90): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\github projects\pa9-game\pa9 game\pong\game.h(94): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-c:\github projects\pa9-game\pa9 game\pong\game.h(98): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\github projects\pa9-game\pa9 game\pong\game.h(101): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\github projects\pa9-game\pa9 game\pong\game.h(189): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(102): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(109): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\github projects\pa9-game\pa9 game\pong\game.h(197): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Pong.vcxproj -> C:\Github Projects\PA9-Game\PA9 Game\Debug\PA9 Game.exe
   Pong.vcxproj -> C:\Github Projects\PA9-Game\PA9 Game\Debug\PA9 Game.pdb (Full PDB)

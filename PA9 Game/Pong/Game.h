@@ -90,6 +90,14 @@ Game::Game() {
 	sf::RectangleShape backBtn(Vector2f(backT->getSize().x, backT->getSize().y));
 	backBtn.setTexture(backT);
 	backBtn.setPosition(Vector2f(800, 900));
+
+	//end pole
+	Texture *endT = new Texture();
+	endT->loadFromFile("endPole.png");
+	RectangleShape endPole((Vector2f)endT->getSize());
+	endPole.setPosition(Vector2f(5200, window.getSize().y-endPole.getSize().y-FLOOR_HEIGHT/2-142));
+	endPole.setTexture(endT);
+
 	// Ground/floor shape initialization and customization
 	sf::RectangleShape floor(Vector2f(6000, FLOOR_HEIGHT));
 	floor.setFillColor(sf::Color(30, 255, 30, 255));
@@ -243,6 +251,7 @@ Game::Game() {
 			window.draw(background2);
 			window.draw(background3);
 			window.draw(background4);
+			window.draw(endPole);
 			window.draw(*mario);
 			window.draw(floor);
 
