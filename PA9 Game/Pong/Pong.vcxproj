@@ -154,11 +154,8 @@
     <ClCompile Include="Mario.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClInclude Include="Game.h" />
-=======
     <ClInclude Include="Gumba.h" />
->>>>>>> Michael
     <ClInclude Include="Mario.h" />
   </ItemGroup>
   <ItemGroup>
