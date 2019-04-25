@@ -48,6 +48,15 @@ Game::Game() {
 	sf::RectangleShape background(Vector2f(3000, 1000));
 	background.setTexture(t);
 	background.setPosition(Vector2f(0, 0));
+	sf::RectangleShape background2(Vector2f(3000, 1000));
+	background2.setTexture(t);
+	background2.setPosition(Vector2f(0, -1000));
+	sf::RectangleShape background3(Vector2f(3000, 1000));
+	background3.setTexture(t);
+	background3.setPosition(Vector2f(3000, 0));
+	sf::RectangleShape background4(Vector2f(3000, 1000));
+	background4.setTexture(t);
+	background4.setPosition(Vector2f(3000, -1000));
 
 	sf::Texture *menuT = new sf::Texture();
 	sf::Texture *startT = new sf::Texture();
@@ -82,7 +91,7 @@ Game::Game() {
 	backBtn.setTexture(backT);
 	backBtn.setPosition(Vector2f(800, 900));
 	// Ground/floor shape initialization and customization
-	sf::RectangleShape floor(Vector2f(3000, FLOOR_HEIGHT));
+	sf::RectangleShape floor(Vector2f(6000, FLOOR_HEIGHT));
 	floor.setFillColor(sf::Color(30, 255, 30, 255));
 	floor.setOutlineColor(sf::Color::Black);
 	floor.setOutlineThickness(-3);
@@ -231,6 +240,9 @@ Game::Game() {
 			window.setView(camera);
 
 			window.draw(background);
+			window.draw(background2);
+			window.draw(background3);
+			window.draw(background4);
 			window.draw(*mario);
 			window.draw(floor);
 
