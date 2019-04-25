@@ -14,11 +14,11 @@
 #include <chrono>
 #include "testmain.h"
 #include "Mario.h"
-#include "Grass.h"
+#include "Gumba.h"
 
 int main()
 {
-	test();
-
+	//testmario();
+	testGumba();
 	return 0;
 }

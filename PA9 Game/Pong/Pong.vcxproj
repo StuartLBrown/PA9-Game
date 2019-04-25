@@ -148,13 +148,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="Gumba.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="testmain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Grass.h" />
+    <ClInclude Include="Gumba.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="testmain.h" />
   </ItemGroup>
